@@ -1,0 +1,91 @@
+{% extends 'base1.html' %}
+
+{% block title %}PTS - Login{% endblock title %}
+
+{% block loginactive %}active{% endblock loginactive %}
+
+{% block body %}
+
+<div class="container" style="margin-top:6.5rem;">
+    <div class="card w-75 mx-auto" style="border-radius:10px;">
+        <form action="" method="POST">{% csrf_token %}
+            <div class="row">
+                <div class="col-md-6"
+                    style="background: #c31432;
+                background: -webkit-linear-gradient(to right, #240b36, #c31432);
+                background: linear-gradient(to right,  #c31432, #240b36);border-top-left-radius:10px;border-bottom-left-radius:10px;">
+                    {% load static %}
+                    <h1 class="text-center text-light mt-3">Welcome,</h1>
+                    <p class="text-center text-warning my-3 h4">Let's Get Started now!</p>
+                    <p class="text-center text-light my-3 h6">OR Create account if not registered yet..
+                    </p>
+                    <img class="w-75 mx-5" src="{% static 'img/login.png' %}" alt="">
+                    <p class="text-center text-warning mt-3" style="color:yellow;">@2022-2023, Patient Tracker System is a very
+                        safe and secured platform or web application. So, Connected with our system...!</p>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="text-center mt-5" style="color:purple"><strong>Login</strong></h2>
+                    <div class="col-md-9 form-group mx-auto">
+                        {% for message in messages %}
+                        <p class="text-{{message.tags}} text-center"><b>{{message}}</b></p>
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-9 mx-auto form-group" style="height:50px;margin-top:20px;">
+                        <input type="text" class="form-control" placeholder="Username" name="loginusername"
+                            style="height:50px;" required>
+                    </div>
+                    <div class="col-md-9 mx-auto form-group" style="height:50px;margin-top:20px;">
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="loginpassword"
+                            style="height:50px;" required>
+                        <small style="margin-left:88%;font-size: 12px;cursor:pointer;
+                            font-family: auto;" id="showpassword">SHOW</small>
+                    </div>
+                    <div class="col-md-9 mx-auto form-group" style="margin-top:35px;">
+                        <button class="btn mx-auto w-75 d-block"
+                            style="background-color:purple; color:white;"><strong>Log In</strong></button>
+                    </div>
+                    <div class="col-md-9 mx-auto" style="margin-top:25px;">
+                        <p style="cursor:pointer;text-align:center;text-decoration:none;">Don't Have an
+                            account ? <a class="text-decoration-none" href="/registration"
+                                style="color:blue;">Register</a>
+                        </p>
+                    </div>
+                    <div class="col-md-12" style="margin-top:10px;">
+                        <p style="font:medium;cursor:pointer;text-align: center;text-decoration:none;"><a
+                                class="text-decoration-none" href="/change_password" style="color:blue;">Change/Reset
+                                your password?</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock body %}
+
+{% block js %}
+<script>
+    
+    password = document.getElementById('password');
+    const showpassword = document.getElementById('showpassword');
+
+
+    function handleToggleInput(){
+        if (showpassword.textContent === "SHOW") {
+            showpassword.textContent = "HIDE"
+            password.setAttribute('type', 'text')
+        }
+        else {
+            showpassword.textContent = "SHOW"
+            password.setAttribute('type', 'password')
+        }
+    }
+
+    showpassword.addEventListener('click', handleToggleInput);
+
+
+</script>
+
+{% endblock js %}

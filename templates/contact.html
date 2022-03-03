@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}PTS - Contact Us{% endblock title %}
+
+{% block contactactive %}active{% endblock contactactive %}
+
+{% block body %}
+
+<div class="container" style="margin-top:6.5rem;">
+    <h2 class="text-center mt-3" style="color:purple;"><strong>Contact Us</strong></h2>
+    <form action="/contact" method="post">{% csrf_token %}
+        <div class="row w-75 mx-auto">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your name" name="name" required>
+                </div>
+                <div class="col-md-12 my-2">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter your email" name="email" required>
+                    </div>
+                </div>
+                <div class="col-md-12 my-2">
+                    <div class="form-group">
+                        <label class="form-label">Phone No</label>
+                        <input type="number" class="form-control" placeholder="Enter your phone no" name="phone" required>
+                    </div>
+                </div>
+                <div class="col-md-12 my-2">
+                    <div class="form-group">
+                        <label class="form-label">Text Message</label>
+                        <textarea name="message" id="textmsg" rows="6" class="form-control" placeholder="Enter your issues/msg" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12 my-3">
+                    <button class="btn" style="background-color:purple;color:white;">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}

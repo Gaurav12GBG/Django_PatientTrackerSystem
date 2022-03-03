@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}PTS - Home{% endblock title %}
+
+{% block aboutactive %}active{% endblock aboutactive %}
+
+{% block body %}
+
+<div class="container" style="margin-top:6.5rem;">
+    <h2 class="text-center" style="color:purple;"><strong>About Us</strong></h2>
+    <div class="row featurette" style="margin-top:4rem;">
+        <div class="col-md-7">
+            {% load static %}
+            <h2 class="featurette-heading"><strong>About
+                    Our Team</strong></h2>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias aut quisquam facilis eligendi quod animi accusantium illum ipsam voluptas minus porro, recusandae, nisi laborum? Animi ut vitae pariatur, aut commodi assumenda dolorem quam sit culpa perferendis sequi, accusamus numquam quod omnis quae voluptas consequuntur ducimus neque cumque odit optio quia!</p>
+        </div>
+        <div class="col-md-5">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                src="https://source.unsplash.com/1600x900/?code, laptop" alt="">
+        </div>
+    </div>
+
+
+    <div class="row featurette" style="margin-top:6.5rem;margin-left:0.5rem;">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading"><strong>About Patient Tracker System</strong></h2>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore mollitia iste soluta numquam facilis debitis, voluptatum ipsam at commodi perspiciatis ex id recusandae fuga eos illo perferendis beatae provident! Pariatur architecto iure laudantium hic? Deleniti, laudantium accusamus nobis quo perferendis dolor maxime explicabo ea eius et quas ab voluptatem fugit.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                src="https://source.unsplash.com/1600x900/?hospital, website" alt="">
+        </div>
+    </div>
+</div>
+    {% endblock body %}

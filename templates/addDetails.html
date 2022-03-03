@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block title %}PTS - Home{% endblock title %}
+
+{% block adddetailsactive %}active{% endblock adddetailsactive %}
+
+{% block body %}
+<div class="container" style="margin-top:6.5rem;">
+    <h2 class="text-center" style="color:purple;"><strong>Add Personal Details</strong></h2>
+    <form action="/addDetails" method="post">{% csrf_token %}
+        <h4>Personal Details</h4>
+        <div class="card shadow-sm" style="border:1px solid purple;">
+            <div class="row p-3">
+                <div class="col-md-4 my-2">
+                    <label class="form-label">First Name <span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Your name" name="fname" required>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Middle Name<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Father name" name="mname" required>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Last Name<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Sur name" name="lname" required>
+                </div>
+                <div class="col-md-8 my-2">
+                    <label class="form-label">Email Id<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="email" class="form-control" placeholder="abc@gmail.com" name="email" required>
+                </div>
+                <div class="col-md-6 my-2">
+                    <label class="form-label">Aadhaar Number<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <input type="number" class="form-control" placeholder="1234-5678-9012" name="adharno" required>
+                </div>
+                <div class="col-md-6 my-2">
+                    <label class="form-label">Mobile Number<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <input type="number" class="form-control" placeholder="1234567890" name="phone" required>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Date Of Birth<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <input type="date" class="form-control" placeholder="dd/mm/yy" name="dob" required>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Age<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="number" class="form-control" placeholder="age" name="age" required>
+                </div>
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Gender<span style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="form-control" name="gender" required>
+                        <option selected>Choose...</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Occupation<span style="color:orangered"><strong>*</strong></span></label>
+                    <select id="inputGroupSelect" class="custom-select form-control" name="occupation" required>
+                        <option selected>Choose...</option>
+                        <option>Agriculture</option>
+                        <option>Buziness</option>
+                        <option>Goverement Servant</option>
+                        <option>Doctor</option>
+                        <option>Professor</option>
+                        <option>Employee</option>
+                        <option>Labour</option>
+                        <option>Student</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Marital Status<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="custom-select form-control" name="maritalstatus" required>
+                        <option selected>Choose...</option>
+                        <option>Married</option>
+                        <option>Unmarried</option>
+                        <option>Divorcee</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h4 class="mt-3">Religion Details</h4>
+        <div class="card shadow-sm p-3" style="border:1px solid purple;">
+            <div class="form-group col-md-6 my-2">
+                <label class="form-label">Religion<span style="color:orangered"><strong>*</strong></span></label>
+                <select id="gender" class="custom-select form-control" name="religion" required>
+                    <option selected>Choose...</option>
+                    <option>Hindu</option>
+                    <option>Muslim</option>
+                    <option>Jain</option>
+                    <option>Buddhist</option>
+                    <option>Christian</option>
+                    <option>Parsi</option>
+                    <option>Sikh</option>
+                    <option>Jews</option>
+                </select>
+            </div>
+        </div>
+        <h4 class="mt-3">Address Details</h4>
+        <div class="card shadow-sm p-3" style="border:1px solid purple;">
+            <div class="row">
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Address<span style="color:orangered"><strong>*</strong></span><span
+                            style="color:red;font-size: 13px;">
+                            (Permanant or correspondance address)</span></label>
+                    <input type="text" class="form-control" placeholder="Enter your address" name="address" required>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">State<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Enter your state" name="state" required>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">District<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Enter your district" name="district" required>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Taluka<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Enter your taluka" name="taluka" required>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Village/City<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Enter your village/city" name="city" required>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Pin Code<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="number" class="form-control" placeholder="Enter your pincode" name="pincode" required>
+                </div>
+            </div>
+        </div>
+        <h4 class="mt-3">Health Details</h4>
+        <div class="card shadow-sm p-3" style="border:1px solid purple;">
+            <div class="row">
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Are you a diabetes patient?<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="custom-select form-control" name="diabetes" required>
+                        <option selected>Choose...</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Are you a cancer patient?<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="custom-select form-control" name="cancer" required>
+                        <option selected>Choose...</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Mention Your blood Group?<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="custom-select form-control" name="bloodgroup" required>
+                        <option selected>Choose...</option>
+                        <option>A+</option>
+                        <option>B+</option>
+                        <option>O+</option>
+                        <option>AB+</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Mention other Diseases that you have?<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="You can mention multiple" name="diseases" required>
+                </div>
+                <div class="form-group col-md-8 my-2">
+                    <label class="form-label">Mention your vaccination status?<span
+                            style="color:orangered"><strong>*</strong></span><span style="color:red;font-size: 13px;">
+                            (If you choose booster, it means that you have completed above two vaccines
+                            also.)</span></label>
+                    <select id="gender" class="custom-select form-control" name="vaccinestatus" required>
+                        <option selected>Choose...</option>
+                        <option>Covidshield</option>
+                        <option>Covaxin</option>
+                        <option>Both</option>
+                        <option>Booster</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-5 my-5 mx-auto">
+                <button type="submit" class="btn"
+                    style="background-color: purple;color: white;width: 100%;"><strong>Submit</strong></button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}

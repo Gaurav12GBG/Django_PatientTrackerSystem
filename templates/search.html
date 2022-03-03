@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container" style="margin-top:6.5rem;">
+    <h2 class="text-center" style="color:purple;"><strong>Search Result : Gaurav Gangurde</strong></h2>
+    <hr>
+    <p class="text-center border border-danger mx-auto my-2" style=" background-color:white;border-radius:5px;color:blue;width:58%;"><b style="color:darkblue;">Important Note :</b> Doctor can modify only <b>Health Details</b> of the patient, Other details cannot change!</p>
+    <form action="/addDetails" method="post">{% csrf_token %}
+        <h4>Personal Details <span style="color:red;font-size: 15px;">
+            (You can't modify this details...)</span></h4>
+        <div class="card shadow-sm" style="border:1px solid purple;">
+            <div class="row p-3">
+                <div class="col-md-4 my-2">
+                    <label class="form-label">First Name <span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Your name" name="fname" value="Gaurav" required disabled>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Middle Name<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Father name" name="mname" value="Bharat" required disabled>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Last Name<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Sur name" name="lname" value="Gangurde" required disabled>
+                </div>
+                <div class="col-md-8 my-2">
+                    <label class="form-label">Email Id<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="email" class="form-control" placeholder="abc@gmail.com" name="email" value="gauravgangurde456@gmail.com" required disabled>
+                </div>
+                <div class="col-md-6 my-2">
+                    <label class="form-label">Aadhaar Number<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <input type="number" class="form-control" placeholder="1234-5678-9012" name="adharno" value="939912209679" required disabled>
+                </div>
+                <div class="col-md-6 my-2">
+                    <label class="form-label">Mobile Number<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <input type="number" class="form-control" placeholder="1234567890" name="phone" value="7030384746" required disabled>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Date Of Birth<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="dd/mm/yy" name="dob" value="01-08-2000" required disabled>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Age<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="number" class="form-control" placeholder="age" name="age" value="22" required disabled>
+                </div>
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Gender<span style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="form-control" name="gender" value="Male" required disabled>
+                        <option>Choose...</option>
+                        <option selected>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Occupation<span style="color:orangered"><strong>*</strong></span></label>
+                    <select id="inputGroupSelect" class="custom-select form-control" name="occupation" value="Student" required disabled>
+                        <option>Choose...</option>
+                        <option>Agriculture</option>
+                        <option>Buziness</option>
+                        <option>Goverement Servant</option>
+                        <option>Doctor</option>
+                        <option>Professor</option>
+                        <option>Employee</option>
+                        <option>Labour</option>
+                        <option selected>Student</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Marital Status<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="custom-select form-control" name="maritalstatus" value="Unmarried" required disabled>
+                        <option>Choose...</option>
+                        <option>Married</option>
+                        <option selected>Unmarried</option>
+                        <option>Divorcee</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h4 class="mt-3">Religion Details <span style="color:red;font-size: 15px;">
+            (You can't modify this details...)</span></h4>
+        <div class="card shadow-sm p-3" style="border:1px solid purple;">
+            <div class="form-group col-md-6 my-2">
+                <label class="form-label">Religion<span style="color:orangered"><strong>*</strong></span></label>
+                <select id="gender" class="custom-select form-control" name="religion" value="Hindu" required disabled>
+                    <option>Choose...</option>
+                    <option selected>Hindu</option>
+                    <option>Muslim</option>
+                    <option>Jain</option>
+                    <option>Buddhist</option>
+                    <option>Christian</option>
+                    <option>Parsi</option>
+                    <option>Sikh</option>
+                    <option>Jews</option>
+                </select>
+            </div>
+        </div>
+        <h4 class="mt-3">Address Details <span style="color:red;font-size: 15px;">
+            (You can't modify this details...)</span></h4>
+        <div class="card shadow-sm p-3" style="border:1px solid purple;">
+            <div class="row">
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Address<span style="color:orangered"><strong>*</strong></span><span
+                            style="color:red;font-size: 13px;">
+                            (Permanant or correspondance address)</span></label>
+                    <input type="text" class="form-control" placeholder="Enter your address" name="address" value="Dugaon" required disabled>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">State<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Enter your state" name="state" value="Maharashtra" required disabled>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">District<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Enter your district" name="district" value="Nashik" required disabled>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Taluka<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Enter your taluka" name="taluka" value="Chandwad" required disabled>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Village/City<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <input type="text" class="form-control" placeholder="Enter your village/city" name="city" value="Dugaon" required disabled>
+                </div>
+                <div class="form-group col-md-6 my-2">
+                    <label class="form-label">Pin Code<span style="color:orangered"><strong>*</strong></span></label>
+                    <input type="number" class="form-control" placeholder="Enter your pincode" name="pincode" value="423104" required disabled>
+                </div>
+            </div>
+        </div>
+        <h4 class="mt-3">Health Details</h4>
+        <div class="card shadow-sm p-3" style="border:1px solid purple;">
+            <div class="row">
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Are you a diabetes patient?<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="custom-select form-control" name="diabetes" value="NO" required>
+                        <option>Choose...</option>
+                        <option>Yes</option>
+                        <option selected>No</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Are you a cancer patient?<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="custom-select form-control" name="cancer" value="NO" required>
+                        <option>Choose...</option>
+                        <option>Yes</option>
+                        <option selected>No</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Mention Your blood Group?<span
+                            style="color:orangered"><strong>*</strong></span></label>
+                    <select id="gender" class="custom-select form-control" name="bloodgroup" value="O+" required disabled>
+                        <option>Choose...</option>
+                        <option>A+</option>
+                        <option>B+</option>
+                        <option selected>O+</option>
+                        <option>AB+</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 my-2">
+                    <label class="form-label">Other Diseases?<span
+                            style="color:orangered"><strong>*</strong> (If not mention NA).</span></label>
+                    <input type="text" class="form-control" placeholder="You can mention multiple" name="diseases" value="NA" required>
+                </div>
+                <div class="form-group col-md-8 my-2">
+                    <label class="form-label">Mention your vaccination status?<span
+                            style="color:orangered"><strong>*</strong></span><span style="color:red;font-size: 13px;">
+                            (If you choose booster, it means that you have completed above two vaccines
+                            also.)</span></label>
+                    <select id="gender" class="custom-select form-control" name="vaccinestatus" value="Both" required>
+                        <option>Choose...</option>
+                        <option>Covidshield</option>
+                        <option>Covaxin</option>
+                        <option selected>Both</option>
+                        <option>Booster</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-5 my-5 mx-auto">
+                <button type="submit" class="btn"
+                    style="background-color: purple;color: white;width: 100%;"><strong>Update Details</strong></button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}
