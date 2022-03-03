@@ -152,5 +152,15 @@ def handleLogout(request):
 
 
 def search(request):
-      
-    return render(request, "search.html")
+    query=request.GET['query']
+    if len(query)>78:
+        allPosts=PatientInfo.objects.none()
+    else:
+        allDatasfname= PatientInfo.objects.filter(fname__icontains=query)
+        allDatasmname= PatientInfo.objects.filter(mname__icontains=query)
+        allDatasnames =PatientInfo.objects.filter(lname__icontains=query)
+        allDatas=  allDatasfname.union(allDatasmname, allDatasnames)
+    if allDatas.count()==0:
+        messages.warning(request, "No search results found. Please refine your query.")
+    params={'allDatas': allDatas, 'query': query}
+    return render(request, "search.html", params)
