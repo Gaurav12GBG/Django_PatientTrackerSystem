@@ -150,17 +150,21 @@ def handleLogout(request):
     messages.success(request, "Successfully logged out !")
     return redirect("home")
 
-
 def search(request):
-    query=request.GET['query']
-    if len(query)>78:
-        allPosts=PatientInfo.objects.none()
+    doctorUser = "doctorIN23"
+    if request.user.username == doctorUser:
+        query=request.GET['query']
+        if len(query)>78:
+            allPosts=PatientInfo.objects.none()
+        else:
+            allDatasfname= PatientInfo.objects.filter(adharno__icontains=query)
+            allDatasmname= PatientInfo.objects.filter(mname__icontains=query)
+            allDatasnames =PatientInfo.objects.filter(lname__icontains=query)
+            allDatas=  allDatasfname.union(allDatasmname, allDatasnames)
+        if allDatas.count()==0:
+            messages.warning(request, "No search results found. Please refine your query.")
+        params={'allDatas': allDatas, 'query': query}
+        return render(request, "search.html", params)
     else:
-        allDatasfname= PatientInfo.objects.filter(fname__icontains=query)
-        allDatasmname= PatientInfo.objects.filter(mname__icontains=query)
-        allDatasnames =PatientInfo.objects.filter(lname__icontains=query)
-        allDatas=  allDatasfname.union(allDatasmname, allDatasnames)
-    if allDatas.count()==0:
-        messages.warning(request, "No search results found. Please refine your query.")
-    params={'allDatas': allDatas, 'query': query}
-    return render(request, "search.html", params)
+        messages.warning(request, "Oops! You can't search because you are not a doctor!")
+        return render(request, "home.html")

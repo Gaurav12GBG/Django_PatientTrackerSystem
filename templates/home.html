@@ -11,15 +11,17 @@
     <form action="/search" method="get">{% csrf_token %}
         <div class="row w-75 mx-auto">
             <div class="alert alert-light w-75 mx-auto text-center text-danger shadow border-danger" role="alert">
-                <b>Please make sure you are a doctor with your unique login id, other user cannot search!</b>
+                <b>Please make sure you are a existing user (doctor), without login search bar is not visible!</b>
             </div>
+            {% if user.is_authenticated%}
             <div class="col-md-12 d-flex">
                 <div class="input-group input-group-lg mb-3">
-                    <input type="text" class="form-control" placeholder="Patient name" name="query" id="query" required>
+                    <input type="text" class="form-control" placeholder="Enter your Adhar No" name="query" id="query" required>
                     <button type="submit" class="btn text-light"
                         style="background-color:purple;">Search</button>
                 </div>
             </div>
+            {% endif %}
         </div>
     </form>
     <div class="row mt-5 shadow" style="background-color: white;border-radius: 5px;border:1px solid rgb(117, 2, 117);">

@@ -20,7 +20,7 @@
     {% endif %}
     {% for data in allDatas %}
     <hr>
-    <p class="text-center border border-danger mx-auto my-2" style=" background-color:white;border-radius:5px;color:blue;width:58%;"><b style="color:darkblue;">Important Note :</b> Doctor can modify only <b>Health Details</b> of the patient, Other details cannot change!</p>
+    <p class="text-center border border-danger mx-auto my-2" style=" background-color:white;border-radius:5px;color:blue;width:58%;"><b style="color:darkblue;">Important Note : Details cannot change!</p>
     <form action="/search" method="post">{% csrf_token %}
         <h4>Personal Details <span style="color:red;font-size: 15px;">
             (You can't modify this details...)</span></h4>
@@ -152,7 +152,7 @@
                 <div class="form-group col-md-4 my-2">
                     <label class="form-label">Are you a diabetes patient?<span
                             style="color:orangered"><strong>*</strong></span></label>
-                    <select id="gender" class="custom-select form-control" name="diabetes" value="{{data.diabetes}}" required>
+                    <select id="gender" class="custom-select form-control" name="diabetes" value="{{data.diabetes}}" required disabled>
                         <option>Choose...</option>
                         <option>Yes</option>
                         <option selected>No</option>
@@ -161,7 +161,7 @@
                 <div class="form-group col-md-4 my-2">
                     <label class="form-label">Are you a cancer patient?<span
                             style="color:orangered"><strong>*</strong></span></label>
-                    <select id="gender" class="custom-select form-control" name="cancer" value="{{data.cancer}}" required>
+                    <select id="gender" class="custom-select form-control" name="cancer" value="{{data.cancer}}" required disabled>
                         <option>Choose...</option>
                         <option>Yes</option>
                         <option selected>No</option>
@@ -181,14 +181,14 @@
                 <div class="form-group col-md-4 my-2">
                     <label class="form-label">Other Diseases?<span
                             style="color:orangered"><strong>*</strong> (If not mention NA).</span></label>
-                    <input type="text" class="form-control" placeholder="You can mention multiple" name="diseases" value="{{data.diseases}}" required>
+                    <input type="text" class="form-control" placeholder="You can mention multiple" name="diseases" value="{{data.diseases}}" required disabled>
                 </div>
                 <div class="form-group col-md-8 my-2">
                     <label class="form-label">Mention your vaccination status?<span
                             style="color:orangered"><strong>*</strong></span><span style="color:red;font-size: 13px;">
                             (If you choose booster, it means that you have completed above two vaccines
                             also.)</span></label>
-                    <select id="gender" class="custom-select form-control" name="vaccinestatus" value="{{data.vaccinestatus}}" required>
+                    <select id="gender" class="custom-select form-control" name="vaccinestatus" value="{{data.vaccinestatus}}" required disabled>
                         <option>Choose...</option>
                         <option>Covidshield</option>
                         <option>Covaxin</option>
@@ -199,12 +199,6 @@
             </div>
         </div>
         {% endfor %}
-        {% comment %} <div class="row">
-            <div class="form-group col-md-5 my-5 mx-auto">
-                <button type="submit" class="btn"
-                    style="background-color: purple;color: white;width: 100%;"><strong>Update Details</strong></button>
-            </div>
-        </div> {% endcomment %}
     </form>
 </div>
 
